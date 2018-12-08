@@ -1,2 +1,4 @@
-# Learning_Records
-Record my learning journey
+# 学习记录
+# Python
+# Go
+# MySQL
