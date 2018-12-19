@@ -26,13 +26,13 @@
 *由下往上并随箭头方向解读*
   
       运行期线程  <-绑定-> cache -分配-> object---小块span，面向内存分配  -分配-> 分配对象 
-                           |            |
-                         提供span      切分
-                           |            |
-                         central -->   span----页为基本单位的大块内存
-                           |
-                         管理central的闲置span
-                           |
+                            |            |
+                          提供span      切分
+                            |            |
+                          central -->   span----页为基本单位的大块内存
+                            |
+                          管理central的闲置span
+                            |
      操作系统 <-内存交互-  heap 
 
 ---
