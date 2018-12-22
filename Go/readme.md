@@ -1,5 +1,5 @@
 ### 这里记录Go相关的内容
-* [接口](https://github.com/Duk1906/Learning_Records/tree/master/Go/GO_Interface.md)
+* [接口](./Go/GO_Interface.md)
 * 反射
 * 内存分配
 * 垃圾回收
