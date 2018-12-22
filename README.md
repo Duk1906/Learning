@@ -1,6 +1,6 @@
 ## 学习记录（会陆续完善，感谢指错）
+ * [Go与Beego](https://github.com/Duk1906/Learning_Records/tree/master/Go)
  * Python与Django
- * Go与Beego
  * 算法
  * 数据库
  * 计算机网络
