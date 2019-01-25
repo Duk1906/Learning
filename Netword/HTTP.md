@@ -9,7 +9,7 @@
     4. 客户端：用户代理、web浏览器、请求方
     5. 服务器：响应方
 ### 1.2 示图
-   ![](..\Pictures\http.png)
+   ![](https://github.com/Duk1906/Learning_Records/blob/master/Pictures/http.png)
 
 ## 二、HTTP请求
 ### 2.1 请求方法
@@ -20,9 +20,9 @@
    5. GET vs POST
       1. 两者都可以处理表单，但由于GET请求不包含主体，GET方法传递的表单数据以键值对形式存放在请求URL里
    6. 其他点
-     1. Request Method: GET
-     2. 安全的请求方法：只取不改为安全，GET是，POST不是
-     3. 幂等的请求方法：使用相同数据，再次调用方法，服务器状态不变，如PUT和DELETE
+       1. Request Method: GET
+       2. 安全的请求方法：只取不改为安全，GET是，POST不是
+       3. 幂等的请求方法：使用相同数据，再次调用方法，服务器状态不变，如PUT和DELETE
 ### 2.2 请求首部
     Accept:  接受内容类型
     Accept-Encoding: 客户端要求服务器使用的编码
