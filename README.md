@@ -3,7 +3,7 @@
  * Python与Django
  * 算法
  * 数据库
- * [计算机网络](https://github.com/Duk1906/Learning_Records/tree/master/Netword)
+ * [network](https://github.com/Duk1906/Learning_Records/tree/master/Netword)
  * 操作系统
  * Nginx
  * 网关协议
