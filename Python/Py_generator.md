@@ -1,6 +1,6 @@
 ## 生成器
 ### 1 key
-   > 生成一个可迭代的对象（具有g.next()/g.__next__()方法）
+   > 生成一个可迭代的对象（具有g.next()方法）
 ### 2 介绍两种方式
 * 列表推倒式的 [] 改成 () 即可
 
@@ -21,10 +21,10 @@ eg2：
 	    for i in range(10):
 	        yield i
 
-	gen = generator()
-	for j in gen:           //推荐使用for循环遍历生成器
-	    print(j)
-	print(gen.__next__())   //生成器里的元素是一次性的，用完后再调用next()方法时会报"StopIteration"错误
+    gen = generator()
+    for j in gen:           //推荐使用for循环遍历生成器
+       print(j)
+    print(gen.__next__())   //生成器里的元素是一次性的，用完后再调用next()方法时会报"StopIteration"错误
 
     tips：可以考虑将generator转换成list以实现持久使用，如 lst = list(gen)
 
@@ -38,20 +38,20 @@ eg2：
 
 eg3:
 
-	  def recursion(n):         # 递归
-	     if n == 0:
-	        return 0
-	     elif n == 1:
-	        return 1
-	     else:
-	        return recursion(n-1) + recursion(n-2)
+     def recursion(n):         # 递归
+         if n == 0:
+             return 0
+         elif n == 1:
+             return 1
+         else:
+             return recursion(n-1) + recursion(n-2)
 
 
-	  if __name__ == '__main__':
-	      begin = time.time()
-	      print(recursion(35))
-	      end = time.time()
-	      print('耗时：', end - begin)
+     if __name__ == '__main__':
+         begin = time.time()
+         print(recursion(35))
+         end = time.time()
+         print('耗时：', end - begin)
 
       输出结果：
           9227465
@@ -63,18 +63,18 @@ eg3:
 eg4：
  
      def fib_generator(n):
-	     x, a, b = 0, 0, 1
-	     while x <= n:
-	         yield a
-	         a, b = b, a+b
-	         x += 1
+	  x, a, b = 0, 0, 1
+          while x <= n:
+               yield a
+               a, b = b, a+b
+               x += 1
 
 
-	 if __name__ == '__main__':
-	     begin = time.time()
-	     print(list(fib_generator(100000))[-1])
-	     end = time.time()
-	     print('耗时：', end - begin)
+     if __name__ == '__main__':
+          begin = time.time()
+          print(list(fib_generator(100000))[-1])
+          end = time.time()
+          print('耗时：', end - begin)
 
      输出结果：
         25974069.....
@@ -82,20 +82,20 @@ eg4：
      可见，100k级别妙算。将n调整到200k，耗时： 16.25570511817932
 
 
-* 普通for循环实现
+* 普通while循环实现
 
 eg5：
 
     def fib_for(n):
-    x, a, b = 0, 0, 1
-    while x < n:
-        a, b = b, a+b
-        x += 1
-    return a
+        x, a, b = 0, 0, 1
+        while x < n:
+            a, b = b, a+b
+            x += 1
+        return a
 
 
-	if __name__ == '__main__':
-	    begin = time.time()
+    if __name__ == '__main__':
+	begin = time.time()
         print(fib_for(100000))
         end = time.time()
         print('耗时：', end - begin)
