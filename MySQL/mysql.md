@@ -1,6 +1,6 @@
 ## MySQL Windows Download
 1. 下载地址 ：https://dev.mysql.com/downloads/mysql/
-   ![](C:\Users\P\Desktop\mysql.jpg)
+   ![](https://github.com/Duk1906/Learning_Records/blob/master/Pictures/mysql.jpg)
 
 2. 解压到你喜欢的文件夹，我选择 D:\，最后结果是D:\mysql-8.0.15-winx64
 3. 在 D:\mysql-8.0.15-winx64 新建 my.ini配置文件，编辑 my.ini 配置以下基本信息：
