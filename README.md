@@ -3,7 +3,7 @@
  * [Python](https://github.com/Duk1906/Learning_Records//tree/master/Python)
  * [network](https://github.com/Duk1906/Learning_Records/tree/master/Netword)
  * [算法](https://github.com/Duk1906/Learning_Records/tree/master/Algorithm)
- * 数据库
+ * [数据库](https://github.com/Duk1906/Learning_Records/tree/master/MySQL)
  * 操作系统
  * Nginx
  * 网关协议
