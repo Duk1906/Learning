@@ -39,7 +39,7 @@
     3xx：重定向状态码(URL重定向)
     4xx：客户端错误状态码(404找不到资源)
     5xx：服务器错误状态码(500代码出错会报该错误)
-### 3.2请求首部
+### 3.2响应首部
     Allow：支持的请求方法
     Content-Length：响应主体字节长度
 	Content-Type: text/html; charset=utf-8
