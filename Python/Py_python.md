@@ -236,7 +236,8 @@
 
 	1. session 在服务器端，cookie 在客户端（浏览器）	
 	2. session 的运行依赖 session id，而 session id 是存在 cookie 中的，也就是说，如果浏览器禁用了 cookie ，同时 session 也会失效，存储Session时，键与Cookie中的sessionid相同，值是开发人员设置的键值对信息，进行了base64编码，过期时间由开发人员设置
-	3. cookie安全性比session差
+	3. cookie安全性比session差，像偷换cookie的情况常有。但session存在服务器端，也是压力，可以学习一下token
+[cookie_session_token](https://www.cnblogs.com/moyand/p/9047978.html)
 	
 ##### 20. python中什么元素为假
     0，空字符串，空列表、空字典、空元组、None, False
