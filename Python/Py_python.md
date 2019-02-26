@@ -16,10 +16,10 @@
       1. 随机整数 random.randint(a,b)
       2. 随机小数 numpy.random.randn(5)
    6. copy 下面 第8点
-      
-            
+           
 ##### 2. is 和 == 的区别
     is 是检查两个对象是否指向同一块内存空间，而 == 是检查他们的值是否相等。
+    
 ##### 3. 可变对象 vs 不可变对象
     dict、list是可变对象，str、int、tuple、float是不可变对象
     延申：
@@ -30,35 +30,37 @@
 		         result：[1, 2, 3] [1, 2, 3] 2310587398280 2310587398280
 
 		 eg2：          a = 'hello'
-					    b = a
-					    print(id(a), id(b), a, b)
-					    a += 'lxp'
-					    print(id(a), id(b), a, b)
+			        b = a
+		         	print(id(a), id(b), a, b)
+				a += 'lxp'
+			        print(id(a), id(b), a, b)
 		         result：2618086222624 2618086222624 hello hello
-                         2618088668592 2618086222624 hellolxp hello
-                 key： b = a的时候，b指向了和a一样的内容为'hello'的内存地址2618086222624；字符串是不可变对象，执行a += 'lxp'时，系统分配了新的内存块2618088668592去存储新生成的字符串'hellolxp',并将变量a指向这个新分配的地址
+                                 2618088668592 2618086222624 hellolxp hello
+                         key： b = a的时候，b指向了和a一样的内容为'hello'的内存地址2618086222624；字符串是不可变对象，
+			       执行a += 'lxp'时，系统分配了新的内存块2618088668592去存储新生成的字符串'hellolxp',并将变量a指向这个新分配的地址
 
-         eg3：          a = 'hello'   
-					    b = 'hello'   
-					    print(id(a), id(b))
-                 result：2298988751648 2298988751648 
-					    c = []  
-					    d = []
-					    print(id(c), id(d))
-                 result：1843333085320 1843333083208
-                 key:系统会对小对象进行缓存，接下来的引用会指向同一内存，如 'hello', 1,1.11; 但是 [],{},(1,),'hello,world'*2 就不会。
+                 eg3：  a = 'hello'   
+			b = 'hello'   
+		        print(id(a), id(b))
+                        result：2298988751648 2298988751648 
+			
+			c = []  
+			d = []
+			print(id(c), id(d))
+                        result：1843333085320 1843333083208
+                        key:系统会对小对象进行缓存，接下来的引用会指向同一内存，如 'hello', 1,1.11; 但是 [],{},(1,),'hello,world'*2 就不会。
 
           
-         eg4:           def test(lst=[]):    
-					        lst.append(1)
-					        print(id(lst))   // 1688817744008
-					        return lst
-					    x = test()
-					    print(id(x), x)      // 1688817744008 [1]
-					    y = test([1, 2])
-					    print(id(x), id(y), x, y)  // 1688817744008 1688817741896 [1] [1, 2, 1]
-					    z = test()
-					    print(id(x), id(y), id(z), x, y, z)  // 1688817744008 1688817741896 1688817744008 [1, 1] [1, 2, 1] [1, 1]
+                 eg4:  def test(lst=[]):    
+			   lst.append(1)
+			   print(id(lst))   // 1688817744008
+			   return lst
+		       x = test()
+		       print(id(x), x)      // 1688817744008 [1]
+		       y = test([1, 2])
+		       print(id(x), id(y), x, y)  // 1688817744008 1688817741896 [1] [1, 2, 1]
+		       z = test()
+		       print(id(x), id(y), id(z), x, y, z)  // 1688817744008 1688817741896 1688817744008 [1, 1] [1, 2, 1] [1, 1]
 ##### 4. join vs +
       ''.join(strlist) --> 快
       for str in strlist:
@@ -66,6 +68,7 @@
 ##### 5. _ _new_ _(cls)和 _ _init_ _(self)
       __new__：新建类，以类为首参，会返回一个类实例，伴随__init__
       __init__:初始化类，以类实例为首参，无返回
+      
 ##### 6. with 上下文管理,帮忙关闭文件==
     with open('output', 'w') as f:     //output没有会自动新建
         f.write('hi,lxp')
@@ -75,6 +78,7 @@
         f.write('hi,lxp')
     finally:
         f.close()
+	
 ##### 7. 异常捕捉_断言
     无论异常是否发生，在程序结束前，finally中的语句都会被执行。
     try:
@@ -89,7 +93,6 @@
        1. 判断assert后面紧跟的语句是True还是False
        2. 如果是True则继续执行
        3. 如果是False则中断程序，调用默认的异常处理器，同时输出assert语句逗号后面的提示信息
-    
 
 ##### 8. 深浅copy  
     import copy
@@ -99,33 +102,34 @@
     2. 对于浅拷贝，字典、列表等可变类型，它们只拷贝第一层地址
     3. 对于深拷贝，字典、列表等可变类型，它里面嵌套多少层，就会拷贝多少层出来，但是最底层的不可变类型地址不变
     4. 应用：用deepcopy拷贝数组的值就不用共享内存了
-        a = [1]
+            a = [1]
 	    b = copy.deepcopy(a)
 	    print(id(a), id(b))   // 2766068833544 2766068822216
+	    
 ##### 9. 设计模式
     1. 单例模式
        某个类只有一个实例存在，适用于 系统的配置文件等
        思路：设置一个类属性，调用类的__new__方法时先判断为空才实例化类，确保类只有一个实例
             class SingleTon(object):
-			    __instance = None
-			    age = None
-			    name = None
+	          __instance = None
+	          age = None
+	          name = None
 			
-			    def __new__(cls, age, name):
-			        if not cls.__instance:
-			            cls.__instance = object.__new__(cls)
-			            cls.age = age
-			            cls.name = name
-			        return cls.__instance
+		  def __new__(cls, age, name):
+		      if not cls.__instance:
+			   cls.__instance = object.__new__(cls)
+			   cls.age = age
+			   cls.name = name
+		           return cls.__instance
 			
-			lxp = SingleTon(21, "lxp")
-			czq = SingleTon(21, "czq")  // 结果表明，这个实例化并没有生效
+	    lxp = SingleTon(21, "lxp")
+	    czq = SingleTon(21, "czq")  // 结果表明，这个实例化并没有生效
 			
-			print(id(lxp), id(czq))   // 3068614188168 3068614188168
-			print(lxp.name, czq.name)   // lxp lxp
+	    print(id(lxp), id(czq))   // 3068614188168 3068614188168
+	    print(lxp.name, czq.name)   // lxp lxp
     2. 工厂模式（工厂：流水线批量生产）
        按需生产对象，一类多实例
-   ![](https://www.cnblogs.com/tangkaishou/p/9246353.html)
+    ![](https://www.cnblogs.com/tangkaishou/p/9246353.html)
 
 ##### 10. 内存管理 
     1. 引用计数：+-
@@ -136,13 +140,13 @@
      1   from multiprocessing import Process，Pool
 		
          p = Process(target=function, args=())
-	   	 p.start()
+	 p.start()
          p.join()
 		
          pool = Pool()
-	     pool.map(func, lst)   # map 第二个参数是任务列表
-	     pool.close()
-	     pool.join()
+	 pool.map(func, lst)   # map 第二个参数是任务列表
+	 pool.close()
+	 pool.join()
 		     
      2   import threading
          threadLock = threading.Lock()
@@ -162,8 +166,8 @@
      2. CPU密集的用多进程，因为假如IO操作少，用多线程的话，因为线程共享一个全局解释器锁，当前运行的线程会霸占GIL，其他线程没有GIL，就不能充分利用多核CPU的优势
 
 ##### 12. 进程通信 Queue、Pipes
-        from multiprocessing import Process, Queue
-        import os, time, random
+                from multiprocessing import Process, Queue
+                import os, time, random
 		
 		# 写数据进程执行的代码:
 		def write(q):
@@ -200,17 +204,13 @@
 ##### 14. fliter(), map()
       def func(x):
 	      return x % 20 == 0
-	  lst = filter(func, range(100))    // filter 的首参func返回的是筛选条件
-	  print(list(lst), type(lst))  // [0, 20, 40, 60, 80] <class 'filter'>
+      lst = filter(func, range(100))    // filter 的首参func返回的是筛选条件  
+      print(list(lst), type(lst))  // [0, 20, 40, 60, 80] <class 'filter'>
 
       def func(x):
           return x - 20  
-	  lst = map(func, range(10))   // map 的func可以返回操作后的x，也可以是x的操作
+      lst = map(func, range(10))   // map 的func可以返回操作后的x，也可以是x的操作
       print(list(lst), type(lst))
-
-      
-
-
 
 ##### 15. 匿名函数lambda
       sum = lambda a,b:a+b
@@ -219,6 +219,7 @@
 ##### 16. Python搜索变量的顺序
       本地作用域（Local）→当前作用域被嵌入的本地作用域（Enclosing locals）
       →全局/模块作用域（Global）→内置作用域（Built-in）
+      
 ##### 17. *args 与 **kwargs
       *args : []
       **kwargs: key-value
@@ -239,12 +240,12 @@
 
 ##### 19. 简述cookie和session的区别
 
-	1. session 在服务器端，cookie 在客户端（浏览器）
-	
+	1. session 在服务器端，cookie 在客户端（浏览器）	
 	2. session 的运行依赖 session id，而 session id 是存在 cookie 中的，也就是说，如果浏览器禁用了 cookie ，同时 session 也会失效，存储Session时，键与Cookie中的sessionid相同，值是开发人员设置的键值对信息，进行了base64编码，过期时间由开发人员设置
 	3. cookie安全性比session差
+	
 ##### 20. python中什么元素为假
-    0，空字符串，空列表、空字典、空元组、None, False
+        0，空字符串，空列表、空字典、空元组、None, False
 ##### 21. python异常
 	IOError：输入输出异常
 
@@ -277,12 +278,12 @@
 
 ##### 24. 去除字符串空格
       方法1：  string = ' fg fxd '
-		      lst = string.split(' ')
-		      res = ''.join(lst)
-		      print(res)
+	      lst = string.split(' ')
+	      res = ''.join(lst)
+	      print(res)
 
-	  方法2：  stri = string.replace(' ', '')   // 首选推荐
-		      print(stri)
+     方法2：  stri = string.replace(' ', '')   // 首选推荐
+	      print(stri)
 
 ##### 25.举例sort和sorted对列表排序，list=[0,-1,3,-10,5,9]
      lst = [0, -1, 3, -10, 5, 9]
@@ -297,21 +298,21 @@
 
           2 列表嵌套元组/列表
              foo = [(20, 'lxp'), (21, 'czq')]
-		     a = sorted(foo, key=lambda x: x[1])  // 按列表的字符串排序
+	     a = sorted(foo, key=lambda x: x[1])  // 按列表的字符串排序
              #  a = sorted(foo, key=lambda x: (x[1],x[0]))  // 先按名字后按年龄
-		     print(a)  // [(21, 'czq'), (20, 'lxp')]
+	     print(a)  // [(21, 'czq'), (20, 'lxp')]
 
           3 对字典的键/值排序（关键是键/值是可比较的）
              foo = {"name": 'lxp', "age": 19}
-		     print(foo.items())
-		     a = sorted(foo.items(), key=lambda x: x[0], reverse=False)
-		     new_dict = {x[0]: x[1] for x in a}
-		     print(new_dict)
+	     print(foo.items())
+	     a = sorted(foo.items(), key=lambda x: x[0], reverse=False)
+	     new_dict = {x[0]: x[1] for x in a}
+             print(new_dict)
 
           4 列表嵌套字符串，根据字符串长度排序，改变列表本身/无额外内存消耗
             foo = ['1', '12', '14', '1234']
-		    foo.sort(key=lambda x: len(x), reverse=False)
-		    print(foo)  
+	    foo.sort(key=lambda x: len(x), reverse=False)
+	    print(foo)  
             // ['1', '12', '14', '1234']
 ##### 26. dict and json字符串
         dic = {'xp': 21, 'aq': 21}
@@ -322,17 +323,17 @@
 
 ##### 27. 类型转换
         a = int(1.11)
-	    print(a)    // 1
-	    b = float('1.11')
-	    print(b)    // 1.11
-	    c = int('1.11')
-	    print(c)    // 报错
+	print(a)    // 1
+	b = float('1.11')
+	print(b)    // 1.11
+	c = int('1.11')
+	print(c)    // 报错
 
 ##### 28. PEP8
 	1. import置顶，顶级定义之间空两行，比如函数或者类定义。
 	2. 方法定义、类定义与第一个方法之间，都应该空一行
 	3. 三引号进行注释
-    4. 使用Pycharm一般使用4个空格来缩进代码
+        4. 使用Pycharm一般使用4个空格来缩进代码
 
 ##### 29. 乐观锁和悲观锁
     乐观锁：乐观态度不上锁
@@ -343,13 +344,13 @@
 	    z += z
 	    print('里面的：', id(z), z)
 
-	x = 10
-	self_add(x)                   //   里面的： 1427862768 20 ，里面的x是新建的局部变量
-	print('外面的：', id(x), x)    //   外面的： 1427862448 10
+    x = 10
+    self_add(x)                   //   里面的： 1427862768 20 ，里面的x是新建的局部变量
+    print('外面的：', id(x), x)    //   外面的： 1427862448 10
 	
-	y = [1]
-	self_add(y)                   //   里面的： 2123441735176 [1, 1]
-	print('外面的：', id(y), y)    //   外面的： 2123441735176 [1, 1]
+    y = [1] 
+    self_add(y)                   //   里面的： 2123441735176 [1, 1]
+    print('外面的：', id(y), y)    //   外面的： 2123441735176 [1, 1]
 
 ##### 31. HTTP请求中get和post区别
 
