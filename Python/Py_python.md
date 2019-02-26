@@ -97,7 +97,7 @@
     2. 对于浅拷贝，字典、列表等可变类型，它们只拷贝第一层地址
     3. 对于深拷贝，字典、列表等可变类型，它里面嵌套多少层，就会拷贝多少层出来，但是最底层的不可变类型地址不变
     4. 应用：用deepcopy拷贝数组的值就不用共享内存了
-            a = [1]
+        a = [1]
 	    b = copy.deepcopy(a)
 	    print(id(a), id(b))   // 2766068833544 2766068822216
 	    
@@ -105,7 +105,7 @@
     1. 单例模式
        某个类只有一个实例存在，适用于 系统的配置文件等
        思路：设置一个类属性，调用类的__new__方法时先判断为空才实例化类，确保类只有一个实例
-            class SingleTon(object):
+         class SingleTon(object):
 	          __instance = None
 	          age = None
 	          name = None
@@ -118,13 +118,12 @@
 		           return cls.__instance
 			
 	    lxp = SingleTon(21, "lxp")
-	    czq = SingleTon(21, "czq")  // 结果表明，这个实例化并没有生效
-			
+	    czq = SingleTon(21, "czq")  // 结果表明，这个实例化并没有生效		
 	    print(id(lxp), id(czq))   // 3068614188168 3068614188168
 	    print(lxp.name, czq.name)   // lxp lxp
     2. 工厂模式（工厂：流水线批量生产）
        按需生产对象，一类多实例
-    ![](https://www.cnblogs.com/tangkaishou/p/9246353.html)
+ [更多](https://www.cnblogs.com/tangkaishou/p/9246353.html)
 
 ##### 10. 内存管理 
     1. 引用计数：+-
@@ -135,13 +134,13 @@
      1   from multiprocessing import Process，Pool
 		
          p = Process(target=function, args=())
-	 p.start()
+	     p.start()
          p.join()
 		
          pool = Pool()
-	 pool.map(func, lst)   # map 第二个参数是任务列表
-	 pool.close()
-	 pool.join()
+	     pool.map(func, lst)   # map 第二个参数是任务列表
+	     pool.close()
+	     pool.join()
 		     
      2   import threading
          threadLock = threading.Lock()
@@ -161,8 +160,8 @@
      2. CPU密集的用多进程，因为假如IO操作少，用多线程的话，因为线程共享一个全局解释器锁，当前运行的线程会霸占GIL，其他线程没有GIL，就不能充分利用多核CPU的优势
 
 ##### 12. 进程通信 Queue、Pipes
-                from multiprocessing import Process, Queue
-                import os, time, random
+            from multiprocessing import Process, Queue
+            import os, time, random
 		
 		# 写数据进程执行的代码:
 		def write(q):
@@ -205,7 +204,7 @@
       def func(x):
           return x - 20  
       lst = map(func, range(10))   // map 的func可以返回操作后的x，也可以是x的操作
-      print(list(lst), type(lst))
+      print(list(lst), type(lst))  // [-20, -19, -18, -17, -16, -15, -14, -13, -12, -11] <class 'map'>
 
 ##### 15. 匿名函数lambda
       sum = lambda a,b:a+b
