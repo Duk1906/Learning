@@ -239,7 +239,7 @@
 	3. cookie安全性比session差
 	
 ##### 20. python中什么元素为假
-        0，空字符串，空列表、空字典、空元组、None, False
+    0，空字符串，空列表、空字典、空元组、None, False
 ##### 21. python异常
 	IOError：输入输出异常
 
@@ -271,13 +271,13 @@
     >print(sys.argv)   // ['1.py', 22, 33] 
 
 ##### 24. 去除字符串空格
-      方法1：  string = ' fg fxd '
-	      lst = string.split(' ')
-	      res = ''.join(lst)
-	      print(res)
+      方法1:   string = ' fg fxd '
+		   lst = string.split(' ')
+		   res = ''.join(lst)
+               print(res)
 
-     方法2：  stri = string.replace(' ', '')   // 首选推荐
-	      print(stri)
+     方法2:   stri = string.replace(' ', '')   // 首选推荐
+	          print(stri)
 
 ##### 25.举例sort和sorted对列表排序，list=[0,-1,3,-10,5,9]
      lst = [0, -1, 3, -10, 5, 9]
@@ -292,22 +292,22 @@
 
           2 列表嵌套元组/列表
              foo = [(20, 'lxp'), (21, 'czq')]
-	     a = sorted(foo, key=lambda x: x[1])  // 按列表的字符串排序
+	         a = sorted(foo, key=lambda x: x[1])  // 按列表的字符串排序
              #  a = sorted(foo, key=lambda x: (x[1],x[0]))  // 先按名字后按年龄
-	     print(a)  // [(21, 'czq'), (20, 'lxp')]
+	         print(a)  // [(21, 'czq'), (20, 'lxp')]
 
           3 对字典的键/值排序（关键是键/值是可比较的）
              foo = {"name": 'lxp', "age": 19}
-	     print(foo.items())
-	     a = sorted(foo.items(), key=lambda x: x[0], reverse=False)
-	     new_dict = {x[0]: x[1] for x in a}
+	         print(foo.items())
+	         a = sorted(foo.items(), key=lambda x: x[0], reverse=False)
+	         new_dict = {x[0]: x[1] for x in a}
              print(new_dict)
 
           4 列表嵌套字符串，根据字符串长度排序，改变列表本身/无额外内存消耗
             foo = ['1', '12', '14', '1234']
-	    foo.sort(key=lambda x: len(x), reverse=False)
-	    print(foo)  
-            // ['1', '12', '14', '1234']
+	        foo.sort(key=lambda x: len(x), reverse=False)
+	        print(foo)  // ['1', '12', '14', '1234']
+	       
 ##### 26. dict and json字符串
         dic = {'xp': 21, 'aq': 21}
         jsn = json.dumps(dic)
@@ -316,7 +316,7 @@
         print(jsn_dic, type(jsn_dic))   // {'aq': 21, 'xp': 21} <class 'dict'>
 
 ##### 27. 类型转换
-        a = int(1.11)
+    a = int(1.11)
 	print(a)    // 1
 	b = float('1.11')
 	print(b)    // 1.11
@@ -327,7 +327,7 @@
 	1. import置顶，顶级定义之间空两行，比如函数或者类定义。
 	2. 方法定义、类定义与第一个方法之间，都应该空一行
 	3. 三引号进行注释
-        4. 使用Pycharm一般使用4个空格来缩进代码
+    4. 使用Pycharm一般使用4个空格来缩进代码
 
 ##### 29. 乐观锁和悲观锁
     乐观锁：乐观态度不上锁
