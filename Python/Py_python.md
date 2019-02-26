@@ -26,41 +26,36 @@
 		 eg1：          a = [1, 2]
 		                b = a         // a,b指向了同一块内存
 		                b.append(3)
-		                print(a, b, id(a), id(b))
-		         result：[1, 2, 3] [1, 2, 3] 2310587398280 2310587398280
+		                print(a, b, id(a), id(b))   //  [1, 2, 3] [1, 2, 3] 2310587398280 2310587398280
 
 		 eg2：          a = 'hello'
 			        b = a
-		         	print(id(a), id(b), a, b)
+		         	print(id(a), id(b), a, b)   // 2618086222624 2618086222624 hello hello
 				a += 'lxp'
-			        print(id(a), id(b), a, b)
-		         result：2618086222624 2618086222624 hello hello
-                                 2618088668592 2618086222624 hellolxp hello
-                         key： b = a的时候，b指向了和a一样的内容为'hello'的内存地址2618086222624；字符串是不可变对象，
-			       执行a += 'lxp'时，系统分配了新的内存块2618088668592去存储新生成的字符串'hellolxp',并将变量a指向这个新分配的地址
+			        print(id(a), id(b), a, b)   //  2618088668592 2618086222624 hellolxp hello     
+                        key：b = a的时候，b指向了和a一样的内容为'hello'的内存地址2618086222624；字符串是不可变对象，
+			        执行a += 'lxp'时，系统分配了新的内存块2618088668592去存储新生成的字符串'hellolxp',并将变量a指向这个新分配的地址
 
-                 eg3：  a = 'hello'   
-			b = 'hello'   
-		        print(id(a), id(b))
-                        result：2298988751648 2298988751648 
-			
-			c = []  
-			d = []
-			print(id(c), id(d))
-                        result：1843333085320 1843333083208
-                        key:系统会对小对象进行缓存，接下来的引用会指向同一内存，如 'hello', 1,1.11; 但是 [],{},(1,),'hello,world'*2 就不会。
+             eg3：          a = 'hello'   
+				b = 'hello'   
+				print(id(a), id(b))    //  2298988751648 2298988751648 
+
+				c = []  
+				d = []
+				print(id(c), id(d))   //  1843333085320 1843333083208
+			    key:系统会对小对象进行缓存，接下来的引用会指向同一内存，如 'hello', 1,1.11; 但是 [],{},(1,),'hello,world'*2 就不会。
 
           
-                 eg4:  def test(lst=[]):    
-			   lst.append(1)
-			   print(id(lst))   // 1688817744008
-			   return lst
-		       x = test()
-		       print(id(x), x)      // 1688817744008 [1]
-		       y = test([1, 2])
-		       print(id(x), id(y), x, y)  // 1688817744008 1688817741896 [1] [1, 2, 1]
-		       z = test()
-		       print(id(x), id(y), id(z), x, y, z)  // 1688817744008 1688817741896 1688817744008 [1, 1] [1, 2, 1] [1, 1]
+             eg4:         def test(lst=[]):    
+				   lst.append(1)
+				   print(id(lst))   // 1688817744008
+				   return lst
+			       x = test()
+			       print(id(x), x)      // 1688817744008 [1]
+			       y = test([1, 2])
+			       print(id(x), id(y), x, y)  // 1688817744008 1688817741896 [1] [1, 2, 1]
+			       z = test()
+			       print(id(x), id(y), id(z), x, y, z)  // 1688817744008 1688817741896 1688817744008 [1, 1] [1, 2, 1] [1, 1]
 ##### 4. join vs +
       ''.join(strlist) --> 快
       for str in strlist:
