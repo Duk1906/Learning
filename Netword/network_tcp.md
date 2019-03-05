@@ -3,6 +3,7 @@
 #### tcp通信
 ![](https://github.com/Duk1906/Learning_Records/blob/master/Pictures/tcp1.png)
 #### 三次握手与四次握手
+    seq是序列号，这是为了连接以后传送数据用的，ack是对收到的数据包的确认，值是等待接收的数据包的序列号
 ![](https://github.com/Duk1906/Learning_Records/blob/master/Pictures/tcp2.png)
 #### udp通信
    *    UDP（user datagram protocol）的中文叫用户数据报协议，属于传输层。UDP是面向非连接的协议，它不与对方建立连接，而是直接把我要发的数据报发给对方。所以UDP适用于一次传输数据量很少、对可靠性要求不高的或对实时性要求高的应用场景。正因为UDP无需建立类如三次握手的连接，而使得通信效率很高。
