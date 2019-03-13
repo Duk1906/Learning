@@ -27,48 +27,49 @@
 		     print('x: ', x)
 		     return x
 
-		coroutine = excute(100)
-		loop = asyncio.get_event_loop()       # 创建事件循环loop
-		# loop.run_until_complete(coroutine)  # 将协程注册到事件循环，封装成task并执行 (这句可以代替后面两句)
-		task = loop.create_task(coroutine)    # 显式声明task，相当于上面一句（此时task是pending态）
-		loop.run_until_complete(task)         # 此时task finished态
-		print(task.result())                  # 获取 task 的结果，finished态才有结果
+	    coroutine = excute(100)
+	    loop = asyncio.get_event_loop()       # 创建事件循环loop
+	    # loop.run_until_complete(coroutine)  # 将协程注册到事件循环，封装成task并执行 (这句可以代替后面两句)
+	    task = loop.create_task(coroutine)    # 显式声明task，相当于上面一句（此时task是pending态）  
+	    loop.run_until_complete(task)         # 此时task finished态
+	    print(task.result())                  # 获取 task 的结果，finished态才有结果
 
         async func --> coroutine --> task --> event_loop
 
 ### 3 运用
-		import asyncio 
-		# import requests
-		import aiohttp   # aiohttp 是一个支持异步请求的库，利用它和 asyncio 配合我们可以非常方便地实现异步请求操作
-		import time
+	import asyncio 
+	import requests
+	import aiohttp   # aiohttp 是一个支持异步请求的库，利用它和 asyncio 配合我们可以非常方便地实现异步请求操作
+	import time
 		
-	    start = time.time()
+	start = time.time()
 
 
-		async def request():                        -----> f1
-		    url = "http://localhost:8080/"
-		    status = requests.get(url)
-		    return status                     
+        async def request():                        -----> f1
+	       url = "http://localhost:8080/"
+	       status = requests.get(url)
+       	    return status                     
 
 
         async def request():                        -----> f2
-		    url = "http://localhost:8080/"
-		    session = aiohttp.ClientSession()
-		    response = await session.get(url)   # 点睛之笔，耗时转用其他协程。 有空可以看看await的说明，不是简单声明就可以使用了，所以这里才会借助aiohttp
-		    return result.status
+		url = "http://localhost:8080/"
+                session = aiohttp.ClientSession()
+	        response = await session.get(url)   # 点睛之笔，耗时转用其他协程。
+	        return result.status
       
          # 如果遇到了await，那么就会将当前协程挂起，转而去执行其他的协程,直到其他的协程也挂起或执行完毕，再进行下一个协程的执行
+	   有空可以看看await的说明，不是简单声明就可以使用了，所以这里才会借助aiohttp
 
 
         loop = asyncio.get_event_loop()   # 创建事件循环loop
-		# mutiltask
-		tasks = [loop.create_task(request()) for _ in range(5)]  # 5个task
-		loop.run_until_complete(asyncio.wait(tasks))
-		for task in tasks:
-		    print(task.result())
+	# mutiltask
+	tasks = [loop.create_task(request()) for _ in range(5)]  # 5个task
+	loop.run_until_complete(asyncio.wait(tasks))
+	for task in tasks:
+             print(task.result())
 		
-		end = time.time()
-		print('time:', end - start)     
+	end = time.time()
+	print('time:', end - start)     
         
         # f1 --->   time: 15.053324222564697 
         # f2 --->   time:  3.051652431488037
@@ -78,6 +79,6 @@
 
         说明： "http://localhost:8080/"是本地beego框架起的服务，特意将对应的处理函数睡眠了3秒
               func (c *MainController) Get() {
-					time.Sleep(time.Duration(3)*time.Second)
-					c.TplName = "index.html"
+			time.Sleep(time.Duration(3)*time.Second)
+			c.TplName = "index.html"
               }
