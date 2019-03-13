@@ -37,39 +37,39 @@
         async func --> coroutine --> task --> event_loop
 
 ### 3 运用
-	import asyncio 
-	import requests
-	import aiohttp   # aiohttp 是一个支持异步请求的库，利用它和 asyncio 配合我们可以非常方便地实现异步请求操作
-	import time
+	    import asyncio 
+	    import requests
+	    import aiohttp   # aiohttp 是一个支持异步请求的库，利用它和 asyncio 配合我们可以非常方便地实现异步请求操作
+	    import time
 		
-	start = time.time()
+	    start = time.time()
 
 
         async def request():                        -----> f1
-	       url = "http://localhost:8080/"
-	       status = requests.get(url)
-       	    return status                     
+	        url = "http://localhost:8080/"
+	        status = requests.get(url)
+            return status                     
 
 
         async def request():                        -----> f2
-		url = "http://localhost:8080/"
-                session = aiohttp.ClientSession()
-	        response = await session.get(url)   # 点睛之笔，耗时转用其他协程。
-	        return result.status
+		 url = "http://localhost:8080/"
+             session = aiohttp.ClientSession()
+	         response = await session.get(url)   # 点睛之笔，耗时转用其他协程。
+	         return result.status
       
          # 如果遇到了await，那么就会将当前协程挂起，转而去执行其他的协程,直到其他的协程也挂起或执行完毕，再进行下一个协程的执行
 	   有空可以看看await的说明，不是简单声明就可以使用了，所以这里才会借助aiohttp
 
 
-        loop = asyncio.get_event_loop()   # 创建事件循环loop
-	# mutiltask
-	tasks = [loop.create_task(request()) for _ in range(5)]  # 5个task
-	loop.run_until_complete(asyncio.wait(tasks))
-	for task in tasks:
-             print(task.result())
+       loop = asyncio.get_event_loop()   # 创建事件循环loop
+	   # mutiltask
+	   tasks = [loop.create_task(request()) for _ in range(5)]  # 5个task
+	   loop.run_until_complete(asyncio.wait(tasks))
+	   for task in tasks:
+            print(task.result())
 		
-	end = time.time()
-	print('time:', end - start)     
+	   end = time.time()
+	   print('time:', end - start)     
         
         # f1 --->   time: 15.053324222564697 
         # f2 --->   time:  3.051652431488037
