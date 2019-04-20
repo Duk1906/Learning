@@ -5,8 +5,7 @@
 		     User         *UserMQ    `orm:"rel(fk)"`      作者
 		     Source       string                          出处 
 		     Content      string                          内容
-		     Pic          string    `orm:"-"`             配图/可选
-			 Time         time.Time `orm:"auto_now_add;type(datetime)"`     创建时间 
+		     Time         time.Time `orm:"auto_now_add;type(datetime)"`     创建时间 
 		}
 
 
@@ -16,7 +15,6 @@
 		     User         *UserMQ    `orm:"rel(fk)"`       作者
 		     Title        string                           题目
 		     Content      string                           内容
-		     Pic          string    `orm:"-"`              配图/可选
 		     Time         time.Time `orm:"auto_now_add;type(datetime)"`     创建时间
 		     Live         int       `orm:"default(0)"`     点赞数
         }
@@ -44,7 +42,6 @@
 			Email        string     `orm:"-"`               邮箱
 			Phone        string     `orm:"-"`               手机号
 		        Birth        time.Time  `orm:"-;type(date)"`    生日
-		        Pic          string     `orm:"-"`               图片
 		        Signature    string     `orm:"-"`               签名
 		}
 
@@ -79,7 +76,6 @@
 	   参数名        必选M/可选O         类型           说明
 	   source           M               string       出处
 	   content          M               string       内容
-	   pic              O                            配图/可选/暂时不处理
     Response:
 	    data :{
            msg: "ok"
@@ -137,9 +133,9 @@
 		               content:'bbbbbb'
 		               time：2019_03_11 18:05
                           },{
-                             people: 'xps'
-		             content:'cccccc'
-		             time：2019_03_11 18:00
+                               people: 'xps'
+		               content:'cccccc'
+		               time：2019_03_11 18:00
                           },{},{}....]
                }
 
