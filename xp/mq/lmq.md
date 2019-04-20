@@ -91,7 +91,8 @@
 			      user:{用户对应的信息},
 			      source: '人民公报',   
 			      content:'cdjcndjnvjbfvkbfskvbfkjvbfkv',
-			      time: 2019_03_11 17:51},{},{}]
+			      time: 2019_03_11 17:51
+			    },{},{}]
                }
 
 
@@ -149,14 +150,16 @@
 				 title: '好好学习',   
 			         content:'cdjcndjnvjbfvkbfskvbfkjvbfkv',
 				 time: 2019_03_11 17:51，
-			         live: 10},{},{}
-			              ] 
+			         live: 10
+				},{},{}
+			      ] 
                 或者
                 bookreview：[{ id:1,
 			       user:{用户对应的信息},
 			       source: '人民公报',   
 			       content:'cdjcndjnvjbfvkbfskvbfkjvbfkv',
-			       time: 2019_03_11 17:51},{},{}
+			       time: 2019_03_11 17:51
+			      },{},{}
                           ]
               }
 
