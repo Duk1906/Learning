@@ -2,6 +2,8 @@
 
 [删除](https://jingyan.baidu.com/article/e9fb46e150735a7521f76681.html)
 
+
+0. 管理员身份 C:\Program Files\MySQL\MySQL Server 8.0\bin>
 1. 首次登录需修改初始密码 mysql> alter user 'root'@'localhost' identified by '19981016';
 2. mysql> show databases;
 
