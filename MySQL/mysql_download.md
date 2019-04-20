@@ -1,6 +1,6 @@
-![安装](https://blog.csdn.net/bobo553443/article/details/81383194)
+[安装](https://blog.csdn.net/bobo553443/article/details/81383194)
 
-![删除](https://jingyan.baidu.com/article/e9fb46e150735a7521f76681.html)
+[删除](https://jingyan.baidu.com/article/e9fb46e150735a7521f76681.html)
 
 1. 首次登录需修改初始密码 mysql> alter user 'root'@'localhost' identified by '19981016';
 2. mysql> show databases;
