@@ -1,10 +1,8 @@
-## 刘美琪
-
 ### 模型类
 ##### 1. 书签
 		type BookMark struct{
 		     Id           int                             唯一标识
-			 User         *UserMQ    `orm:"rel(fk)"`      作者
+		     User         *UserMQ    `orm:"rel(fk)"`      作者
 		     Source       string                          出处 
 		     Content      string                          内容
 		     Pic          string    `orm:"-"`             配图/可选
@@ -15,12 +13,12 @@
 ##### 2. 书评
 		type BookReview struct{
 		     Id           int                              唯一标识
-			 User         *UserMQ    `orm:"rel(fk)"`       作者
+		     User         *UserMQ    `orm:"rel(fk)"`       作者
 		     Title        string                           题目
 		     Content      string                           内容
 		     Pic          string    `orm:"-"`              配图/可选
-			 Time         time.Time `orm:"auto_now_add;type(datetime)"`     创建时间
-			 Live         int       `orm:"default(0)"`     点赞数
+		     Time         time.Time `orm:"auto_now_add;type(datetime)"`     创建时间
+		     Live         int       `orm:"default(0)"`     点赞数
         }
 
 
@@ -30,7 +28,7 @@
 			 Id           int 
 			 BookReview   *BookReview   `orm:"rel(fk)"`             评论的书评
 			 People       *UserMQ       `orm:"rel(fk)"`             评论人
-		     Content      string                                    内容
+		         Content      string                                    内容
 			 Time         time.Time     `orm:"auto_now_add;type(datetime)"`   时间
         }
 
@@ -45,14 +43,14 @@
 			Sex          int        `orm:"-"`               性别   0：男   1：女
 			Email        string     `orm:"-"`               邮箱
 			Phone        string     `orm:"-"`               手机号
-		    Birth        time.Time  `orm:"-;type(date)"`    生日
-		    Pic          string     `orm:"-"`               图片
-		    Signature    string     `orm:"-"`               签名
+		        Birth        time.Time  `orm:"-;type(date)"`    生日
+		        Pic          string     `orm:"-"`               图片
+		        Signature    string     `orm:"-"`               签名
 		}
 
 
 ### 接口
-##### 1. 1 注册 /user/register
+### 1 注册 /user/register
     Metohd: POST
     Request：  
 	   参数名        必选M/可选O          类型         说明
@@ -94,11 +92,10 @@
     Response:
 	    data :{
                bookmark：[ {  id:1,
-					          user:{用户对应的信息},
-					          source: '人民公报',   
-					          content:'cdjcndjnvjbfvkbfskvbfkjvbfkv',
-					          pic:"一个路径，暂时不理",
-					          time: 2019_03_11 17:51},{},{}]
+			      user:{用户对应的信息},
+			      source: '人民公报',   
+			      content:'cdjcndjnvjbfvkbfskvbfkjvbfkv',
+			      time: 2019_03_11 17:51},{},{}]
                }
 
 
@@ -108,7 +105,6 @@
 	   参数名        必选M/可选O         类型           说明
 	   title            M               string       题目
 	   content          M               string       内容
-	   pic              O                            配图/可选/暂时不处理
     Response:
 	    data :{
            msg: "ok"
@@ -120,9 +116,9 @@
 	   无
     Response:
 	    data :{ bookreview：[{ id：1
-						       title: '好好学习',   
-						       content:'cdjcndjnvjbfvkbfskvbfkjvbfkv',
-						       pic:"一个路径，暂时不理"},{},{}]
+				   title: '好好学习',   
+				   content:'cdjcndjnvjbfvkbfskvbfkjvbfkv',
+				  },{},{}]
                }
 
 ### 7 书评详情页 /bookreview/details
@@ -131,20 +127,19 @@
 	   id        M               int          书评id
     Response:
 	    data :{  id:1,
-			     user:{用户对应的信息},
-			     title: '好好学习',   
-			     content:'cdjcndjnvjbfvkbfskvbfkjvbfkv',
-	             pic:"一个路径，暂时不理",
-	   	         time: 2019_03_11 17:51，
-                 live: 10,
-                 comment:[{
-		                     people: 'lxp'
-		                     content:'bbbbbb'
-		                     time：2019_03_11 18:05
+		     user:{用户对应的信息},
+		     title: '好好学习',   
+		     content:'cdjcndjnvjbfvkbfskvbfkjvbfkv',
+	   	     time: 2019_03_11 17:51，
+                     live: 10,
+                     comment:[{
+		               people: 'lxp'
+		               content:'bbbbbb'
+		               time：2019_03_11 18:05
                           },{
                              people: 'xps'
-		                     content:'cccccc'
-		                     time：2019_03_11 18:00
+		             content:'cccccc'
+		             time：2019_03_11 18:00
                           },{},{}....]
                }
 
@@ -154,20 +149,18 @@
 	   kind        M              int           0:书签 1：书评
     Response:
 	   data :{  bookmark：[ {id:1,
-						     user:{用户对应的信息},
-						     title: '好好学习',   
-						     content:'cdjcndjnvjbfvkbfskvbfkjvbfkv',
-				             pic:"一个路径，暂时不理",
-				   	         time: 2019_03_11 17:51，
-			                 live: 10},{},{}
+				 user:{用户对应的信息},
+				 title: '好好学习',   
+			         content:'cdjcndjnvjbfvkbfskvbfkjvbfkv',
+				 time: 2019_03_11 17:51，
+			         live: 10},{},{}
 			              ] 
                 或者
                 bookreview：[{ id:1,
-					          user:{用户对应的信息},
-					          source: '人民公报',   
-					          content:'cdjcndjnvjbfvkbfskvbfkjvbfkv',
-					          pic:"一个路径，暂时不理",
-					          time: 2019_03_11 17:51},{},{}
+			       user:{用户对应的信息},
+			       source: '人民公报',   
+			       content:'cdjcndjnvjbfvkbfskvbfkjvbfkv',
+			       time: 2019_03_11 17:51},{},{}
                           ]
               }
 
@@ -177,11 +170,11 @@
        无
     Response:
 	   data :{ UserDatails：{ name:'dd'       
-					          sex: 1          
-					          email:'983316419@qq.com'       
-					          phone:15521501175        
-					          birth:1990-10       
-					          signature:"do ffff"
+				 sex: 1          
+				 email:'983316419@qq.com'       
+				 phone:15521501175        
+				 birth:1990-10       
+				 signature:"do ffff"
                              }
                }
 
