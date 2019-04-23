@@ -30,4 +30,6 @@
 		| root             | localhost |                   NULL |
 		+------------------+-----------+------------------------+
         4 rows in set (0.00 sec)
-6. quit
+6. select * from userx;
+6. describe likex;
+6. quit;
