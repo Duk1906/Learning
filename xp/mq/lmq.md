@@ -84,10 +84,10 @@
 	   无
     Response:{
           bookmark：[ {  Id:1,
-					     User:{用户对应的信息},
-					     Source: '人民公报',   
-					     Content:'cdjcndjnvjbfvkbfskvbfkjvbfkv',
-					     Time: 2019_03_11 17:51
+			     User:{用户对应的信息},
+			     Source: '人民公报',   
+			     Content:'cdjcndjnvjbfvkbfskvbfkjvbfkv',
+			     Time: 2019_03_11 17:51
                       },{},{}]
     }
 
@@ -109,9 +109,9 @@
     Response:
 	    data :{ 
             bookreview：[{ Id：1
-						   Title: '好好学习',   
-						   Content:'cdjcndjnvjbfvkbfskvbfkjvbfkv',
-						 },{},{}]
+			       Title: '好好学习',   
+			       Content:'cdjcndjnvjbfvkbfskvbfkjvbfkv',
+			    },{},{}]
     }
 
 ### 7 书评详情页 /bookreview/details
@@ -121,20 +121,20 @@
 	   Id               M              int           书评id
     Response:{  
                  Id:1,
-			     User:{用户对应的信息},
-			     Title: '好好学习',   
-			     Content:'cdjcndjnvjbfvkbfskvbfkjvbfkv',
-	   	         Time: 2019_03_11 17:51，
+		     User:{用户对应的信息},
+		     Title: '好好学习',   
+		     Content:'cdjcndjnvjbfvkbfskvbfkjvbfkv',
+	   	     Time: 2019_03_11 17:51，
                  Live: 10,
                  Comment:[ 
                            {
                              people: 'lxp'
-		                     content:'bbbbbb'
-		                     time：2019_03_11 18:05:12
+		                 content:'bbbbbb'
+		                 time：2019_03_11 18:05:12
                            },{
                              people: 'xps'
-		                     content:'cccccc'
-		                     time：2019_03_11 18:00:23
+		                 content:'cccccc'
+		                 time：2019_03_11 18:00:23
                            },{},{}.... 
                          ]
     }
@@ -147,20 +147,20 @@
     Response:{  
                 bookmark：[ {
                              Id:1,
-						     User:{用户对应的信息},
-						     Title: '好好学习',   
-						     Content:'cdjcndjnvjbfvkbfskvbfkjvbfkv',
-				   	         Time: 2019_03_11 17:51，
-			                 Live: 10
+				 User:{用户对应的信息},
+				 Title: '好好学习',   
+				 Content:'cdjcndjnvjbfvkbfskvbfkjvbfkv',
+				 Time: 2019_03_11 17:51，
+			         Live: 10
                             },{},{}
 			              ] 
                 或者
                 bookreview：[{ 
                               Id:1,
-					          User:{用户对应的信息},
-					          Source: '人民公报',   
-					          Content:'cdjcndjnvjbfvkbfskvbfkjvbfkv',
-					          Time: 2019_03_11 17:51
+			          User:{用户对应的信息},
+				  Source: '人民公报',   
+				  Content:'cdjcndjnvjbfvkbfskvbfkjvbfkv',
+				  Time: 2019_03_11 17:51
                             },{},{}
                           ]
     }
@@ -171,11 +171,11 @@
        无
     Response:{ 
                  Name:'dd'       
-				 Sex: 1          
-				 Email:'983316419@qq.com'       
-			     Phone:15521501175        
-				 Birth:1990-10       
-				 Signature:"do ffff"
+		     Sex: 1          
+		     Email:'983316419@qq.com'       
+		     Phone:15521501175        
+		     Birth:1990-10       
+		     Signature:"do ffff"
                            
     }
 
@@ -185,7 +185,7 @@
        Uid         M              int           用户id
        Role        M              int           角色
     Response:{ 
-		 Msg:"ok"
+	      Msg:"ok"
     }
 
 ### 11 用户列表 /user/list
