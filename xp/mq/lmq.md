@@ -82,13 +82,13 @@
     Metohd: Get
     Request：  
 	   无
-    Response:{
-          bookmark：[ {  Id:1,
-			     User:{用户对应的信息},
-			     Source: '人民公报',   
-			     Content:'cdjcndjnvjbfvkbfskvbfkjvbfkv',
-			     Time: 2019_03_11 17:51
-                      },{},{}]
+    Response:{ 
+                Id : 1,
+		    User : '门户名',
+		    Source : '人民公报',   
+		    Content : 'cdjcndjnvjbfvkbfskvbfkjvbfkv',
+		    Time : 2019_03_11 17:51
+                },{},{}]
     }
 
 
@@ -106,12 +106,11 @@
     Metohd: Get
     Request：  
 	   无
-    Response:
-	    data :{ 
-            bookreview：[{ Id：1
-			       Title: '好好学习',   
-			       Content:'cdjcndjnvjbfvkbfskvbfkjvbfkv',
-			    },{},{}]
+    Response:{ 
+                Id：1
+		    Title: '好好学习',   
+		    Content:'cdjcndjnvjbfvkbfskvbfkjvbfkv',
+	         },{},{}]
     }
 
 ### 7 书评详情页 /bookreview/details
