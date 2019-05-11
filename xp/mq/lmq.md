@@ -120,7 +120,7 @@
 	   Id               M              int           书评id
     Response:{  
                  Id:1,
-		     User:{用户对应的信息},
+		     User:'门户名',
 		     Title: '好好学习',   
 		     Content:'cdjcndjnvjbfvkbfskvbfkjvbfkv',
 	   	     Time: 2019_03_11 17:51，
@@ -146,7 +146,7 @@
     Response:{  
                 bookmark：[ {
                              Id:1,
-				 User:{用户对应的信息},
+				 User:'门户名',
 				 Title: '好好学习',   
 				 Content:'cdjcndjnvjbfvkbfskvbfkjvbfkv',
 				 Time: 2019_03_11 17:51，
@@ -156,7 +156,7 @@
                 或者
                 bookreview：[{ 
                               Id:1,
-			          User:{用户对应的信息},
+			          User:'门户名',
 				  Source: '人民公报',   
 				  Content:'cdjcndjnvjbfvkbfskvbfkjvbfkv',
 				  Time: 2019_03_11 17:51
