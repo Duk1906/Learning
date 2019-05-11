@@ -47,150 +47,151 @@
 
 
 ### 接口
-### 1 注册 /user/register
+##### 1. 1 注册 /user/register
     Metohd: POST
     Request：  
 	   参数名        必选M/可选O          类型         说明
-       num              M               string       账号 
-	   pwd              M               string       密码 
-    Response:
-	    data :{
-           msg: "ok"
-	    }
+       Num              M               string       账号 
+	   Pwd              M               string       密码 
+    Response:{
+         Msg: "ok"
+	}
 
 ### 2 登录 /user/enter
     验证，信息正确则跳转到首页，否则提示错误仍保留在登录页
     Metohd: POST
     Request：   
 	   参数名        必选M/可选O          类型         说明
-	   num              M               string       账号
-	   pwd              M               string       密码
-    Response:
-	    data :{
-           msg: "验证通过"
-	    }
+	   Num              M               string       账号
+	   Pwd              M               string       密码
+    Response:{
+         Msg: "ok"
+	}
 
 ### 3 创建书签 /bookmark/create
     Metohd: POST
     Request：  
 	   参数名        必选M/可选O         类型           说明
-	   source           M               string       出处
-	   content          M               string       内容
-    Response:
-	    data :{
-           msg: "ok"
-	    }
+	   Source           M               string       出处
+	   Content          M               string       内容
+    Response:{
+         Msg: "ok"
+	}
 
 ### 4 首页获取书签 /bookmark/get
     Metohd: Get
     Request：  
 	   无
-    Response:
-	    data :{
-               bookmark：[ {  id:1,
-			      user:{用户对应的信息},
-			      source: '人民公报',   
-			      content:'cdjcndjnvjbfvkbfskvbfkjvbfkv',
-			      time: 2019_03_11 17:51
-			    },{},{}]
-               }
+    Response:{
+          bookmark：[ {  Id:1,
+					     User:{用户对应的信息},
+					     Source: '人民公报',   
+					     Content:'cdjcndjnvjbfvkbfskvbfkjvbfkv',
+					     Time: 2019_03_11 17:51
+                      },{},{}]
+    }
 
 
 ### 5 创建书评 /bookreview/create
     Metohd: POST
     Request：  
 	   参数名        必选M/可选O         类型           说明
-	   title            M               string       题目
-	   content          M               string       内容
-    Response:
-	    data :{
-           msg: "ok"
-	    }
+	   Title            M               string       题目
+	   Content          M               string       内容
+    Response:{
+         Msg: "ok"
+	}
 
 ### 6 书评页获取书评 /bookreview/get
     Metohd: Get
     Request：  
 	   无
     Response:
-	    data :{ bookreview：[{ id：1
-				   title: '好好学习',   
-				   content:'cdjcndjnvjbfvkbfskvbfkjvbfkv',
-				  },{},{}]
-               }
+	    data :{ 
+            bookreview：[{ Id：1
+						   Title: '好好学习',   
+						   Content:'cdjcndjnvjbfvkbfskvbfkjvbfkv',
+						 },{},{}]
+    }
 
 ### 7 书评详情页 /bookreview/details
     Metohd: Post
     Request：  
-	   id        M               int          书评id
-    Response:
-	    data :{  id:1,
-		     user:{用户对应的信息},
-		     title: '好好学习',   
-		     content:'cdjcndjnvjbfvkbfskvbfkjvbfkv',
-	   	     time: 2019_03_11 17:51，
-                     live: 10,
-                     comment:[{
-		               people: 'lxp'
-		               content:'bbbbbb'
-		               time：2019_03_11 18:05
-                          },{
-                               people: 'xps'
-		               content:'cccccc'
-		               time：2019_03_11 18:00
-                          },{},{}....]
-               }
+       参数名        必选M/可选O         类型           说明
+	   Id               M              int           书评id
+    Response:{  
+                 Id:1,
+			     User:{用户对应的信息},
+			     Title: '好好学习',   
+			     Content:'cdjcndjnvjbfvkbfskvbfkjvbfkv',
+	   	         Time: 2019_03_11 17:51，
+                 Live: 10,
+                 Comment:[ 
+                           {
+                             people: 'lxp'
+		                     content:'bbbbbb'
+		                     time：2019_03_11 18:05:12
+                           },{
+                             people: 'xps'
+		                     content:'cccccc'
+		                     time：2019_03_11 18:00:23
+                           },{},{}.... 
+                         ]
+    }
 
 ### 8 个人文墨 /user/article/get
     Metohd: Post
     Request：  
-	   kind        M              int           0:书签 1：书评
-    Response:
-	   data :{  bookmark：[ {id:1,
-				 user:{用户对应的信息},
-				 title: '好好学习',   
-			         content:'cdjcndjnvjbfvkbfskvbfkjvbfkv',
-				 time: 2019_03_11 17:51，
-			         live: 10
-				},{},{}
-			      ] 
+       参数名        必选M/可选O         类型           说明
+	   Kind             M              int           0:书签 1：书评
+    Response:{  
+                bookmark：[ {
+                             Id:1,
+						     User:{用户对应的信息},
+						     Title: '好好学习',   
+						     Content:'cdjcndjnvjbfvkbfskvbfkjvbfkv',
+				   	         Time: 2019_03_11 17:51，
+			                 Live: 10
+                            },{},{}
+			              ] 
                 或者
-                bookreview：[{ id:1,
-			       user:{用户对应的信息},
-			       source: '人民公报',   
-			       content:'cdjcndjnvjbfvkbfskvbfkjvbfkv',
-			       time: 2019_03_11 17:51
-			      },{},{}
+                bookreview：[{ 
+                              Id:1,
+					          User:{用户对应的信息},
+					          Source: '人民公报',   
+					          Content:'cdjcndjnvjbfvkbfskvbfkjvbfkv',
+					          Time: 2019_03_11 17:51
+                            },{},{}
                           ]
-              }
+    }
 
 ### 9 个人资料 /user/details/get
     Metohd: Get
     Request：  
        无
-    Response:
-	   data :{ UserDatails：{ name:'dd'       
-				 sex: 1          
-				 email:'983316419@qq.com'       
-				 phone:15521501175        
-				 birth:1990-10       
-				 signature:"do ffff"
-                             }
-               }
+    Response:{ 
+                 Name:'dd'       
+				 Sex: 1          
+				 Email:'983316419@qq.com'       
+			     Phone:15521501175        
+				 Birth:1990-10       
+				 Signature:"do ffff"
+                           
+    }
 
 ### 10 角色设置 /user/role/set
     Metohd: Post
     Request：  
-       uid         M              int           用户id
-       role        M              int           角色
-    Response:
-	   data :{ 
-		      msg:"ok"
-               }
+       Uid         M              int           用户id
+       Role        M              int           角色
+    Response:{ 
+		 Msg:"ok"
+    }
 
 ### 11 用户列表 /user/list
     Metohd: Get
     Request：  
        无
-    Response:
-	   data :{users： [ {用户1的所有信息}，{用户2}，{用户3} ]
-             }
+    Response:{
+        [ {用户1的所有信息}，{用户2}，{用户3} ]
+    }
