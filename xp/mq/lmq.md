@@ -12,7 +12,8 @@
 ##### 2. 书评
 		type BookReview struct{
 		     Id           int                              唯一标识
-		     User         *UserMQ    `orm:"rel(fk)"`       作者
+		     UserID       int                              作者id
+		     UserName     string                           作者名字
 		     Title        string                           题目
 		     Content      string                           内容
 		     Time         time.Time `orm:"auto_now_add;type(datetime)"`     创建时间
@@ -25,7 +26,8 @@
 		type Comment struct{
 			 Id           int 
 			 BookReview   *BookReview   `orm:"rel(fk)"`             评论的书评
-			 People       *UserMQ       `orm:"rel(fk)"`             评论人
+			 PeopleId     int                                       评论人id
+			 PeopleName   string                                    评论人名字
 		         Content      string                                    内容
 			 Time         time.Time     `orm:"auto_now_add;type(datetime)"`   时间
         }
@@ -43,6 +45,7 @@
 			Phone        string     `orm:"-"`               手机号
 		        Birth        time.Time  `orm:"-;type(date)"`    生日
 		        Signature    string     `orm:"-"`               签名
+			Time         time.Time                          创建时间
 		}
 
 
