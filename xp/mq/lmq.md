@@ -50,7 +50,7 @@
 
 
 ### 接口
-##### 1. 1 注册 /user/register
+##### 1 注册 /user/register
     Metohd: POST
     Request：  
 	   参数名        必选M/可选O          类型         说明
@@ -60,7 +60,7 @@
          Msg: "ok"
 	}
 
-### 2 登录 /user/enter
+##### 2 登录 /user/enter
     验证，信息正确则跳转到首页，否则提示错误仍保留在登录页
     Metohd: POST
     Request：   
@@ -71,7 +71,7 @@
          Msg: "ok"
 	}
 
-### 3 创建书签 /bookmark/create
+##### 3 创建书签 /bookmark/create
     Metohd: POST
     Request：  
 	   参数名        必选M/可选O         类型           说明
@@ -81,7 +81,7 @@
          Msg: "ok"
 	}
 
-### 4 首页获取书签 /bookmark/get
+###### 4 首页获取书签 /bookmark/get
     Metohd: Get
     Request：  
 	   无
@@ -95,7 +95,7 @@
     }
 
 
-### 5 创建书评 /bookreview/create
+##### 5 创建书评 /bookreview/create
     Metohd: POST
     Request：  
 	   参数名        必选M/可选O         类型           说明
@@ -105,7 +105,7 @@
          Msg: "ok"
 	}
 
-### 6 书评页获取书评 /bookreview/get
+##### 6 书评页获取书评 /bookreview/get
     Metohd: Get
     Request：  
 	   无
@@ -116,7 +116,7 @@
 	         },{},{}]
     }
 
-### 7 书评详情页 /bookreview/details
+##### 7 书评详情页 /bookreview/details
     Metohd: Post
     Request：  
        参数名        必选M/可选O         类型           说明
@@ -141,7 +141,7 @@
                          ]
     }
     
-###  8 点赞 /like/creata
+#####  8 点赞 /like/creata
 	Metohd: POST
 	Request：  
 	      参数名        必选M/可选O      类型           说明
@@ -150,7 +150,7 @@
 	       Msg: "ok"
 	}
 
-### 9 取消点赞 /like/cancel
+##### 9 取消点赞 /like/cancel
 	Metohd: POST
 	Request：  
 	      参数名        必选M/可选O      类型           说明
@@ -159,7 +159,7 @@
 	       Msg: "ok"
 	}
 
-### 10 评论/article/comment/create
+##### 10 评论/article/comment/create
 	Metohd: POST
 	Request：  
 	      参数名        必选M/可选O      类型           说明
@@ -169,7 +169,7 @@
 	       Msg: "ok"
 	}
 
-### 11 个人文墨 /user/article/get
+##### 11 个人文墨 /user/article/get
     Metohd: Post
     Request：  
        参数名        必选M/可选O         类型           说明
@@ -195,7 +195,7 @@
                           ]
     }
 
-### 12 个人资料 /user/details/get
+##### 12 个人资料 /user/details/get
     Metohd: Get
     Request：  
        无
@@ -209,7 +209,7 @@
                            
     }
 
-### 13 角色设置 /user/role/set
+##### 13 角色设置 /user/role/set
     Metohd: Post
     Request：  
        Uid         M              int           用户id
@@ -218,7 +218,7 @@
 	      Msg:"ok"
     }
 
-### 14 用户列表 /user/list
+##### 14 用户列表 /user/list
     Metohd: Get
     Request：  
        无
