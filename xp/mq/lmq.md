@@ -140,8 +140,36 @@
                            },{},{}.... 
                          ]
     }
+    
+###  8 点赞 /like/creata
+	Metohd: POST
+	Request：  
+	      参数名        必选M/可选O      类型           说明
+		ID               M           int           书评id
+	Response:{
+	       Msg: "ok"
+	}
 
-### 8 个人文墨 /user/article/get
+### 9 取消点赞 /like/cancel
+	Metohd: POST
+	Request：  
+	      参数名        必选M/可选O      类型           说明
+		 ID              M           int           书评id
+	Response:{
+	       Msg: "ok"
+	}
+
+### 10 评论/article/comment/create
+	Metohd: POST
+	Request：  
+	      参数名        必选M/可选O      类型           说明
+		BookReview     M            int            书评id
+		Content        M            string         内容
+	Response:{
+	       Msg: "ok"
+	}
+
+### 11 个人文墨 /user/article/get
     Metohd: Post
     Request：  
        参数名        必选M/可选O         类型           说明
@@ -160,14 +188,14 @@
                 bookreview：[{ 
                               Id:1,
 			          User:'门户名',
-				  Source: '人民公报',   
+	 			  Source: '人民公报',   
 				  Content:'cdjcndjnvjbfvkbfskvbfkjvbfkv',
 				  Time: 2019_03_11 17:51
                             },{},{}
                           ]
     }
 
-### 9 个人资料 /user/details/get
+### 12 个人资料 /user/details/get
     Metohd: Get
     Request：  
        无
@@ -181,7 +209,7 @@
                            
     }
 
-### 10 角色设置 /user/role/set
+### 13 角色设置 /user/role/set
     Metohd: Post
     Request：  
        Uid         M              int           用户id
@@ -190,7 +218,7 @@
 	      Msg:"ok"
     }
 
-### 11 用户列表 /user/list
+### 14 用户列表 /user/list
     Metohd: Get
     Request：  
        无
