@@ -145,7 +145,7 @@
 	Metohd: POST
 	Request：  
 	      参数名        必选M/可选O      类型           说明
-		ID               M           int           书评id
+		Id               M           int           书评id
 	Response:{
 	       Msg: "ok"
 	}
@@ -154,7 +154,7 @@
 	Metohd: POST
 	Request：  
 	      参数名        必选M/可选O      类型           说明
-		 ID              M           int           书评id
+		 Id              M           int           书评id
 	Response:{
 	       Msg: "ok"
 	}
@@ -163,7 +163,7 @@
 	Metohd: POST
 	Request：  
 	      参数名        必选M/可选O      类型           说明
-		BookReview     M            int            书评id
+		Id     M            int            书评id
 		Content        M            string         内容
 	Response:{
 	       Msg: "ok"
