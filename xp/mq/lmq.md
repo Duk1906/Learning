@@ -117,11 +117,18 @@
     Metohd: Get
     Request：  
 	   无
-    Response:{ 
-                Id：1
-		    Title: '好好学习',   
-		    Content:'cdjcndjnvjbfvkbfskvbfkjvbfkv',
-	         },{},{}]
+    Response:{
+	  "List": [
+		    {
+		      "Id": 1,
+		      "UserID": 1,
+		      "UserName": "",
+		      "Title": "毕业咯",
+		      "Content": "\u003cp\u003e毕业咯咯咯咯咯咯咯咯咯咯\u003c/p\u003e\n",
+		      "Time": "2019-05-20 20:52:16",
+		      "LikeNum": 0
+		    },{},{}
+	  ]
     }
 
 ##### 7 书评详情页 /bookreview/details
@@ -129,42 +136,44 @@
     Request：  
        参数名        必选M/可选O         类型           说明
 	   Id               M              int           书评id
-    Response:{  
-                 Id:1,
-		     User:'门户名',
-		     Title: '好好学习',   
-		     Content:'cdjcndjnvjbfvkbfskvbfkjvbfkv',
-	   	     Time: 2019_03_11 17:51，
-                 Live: 10,
-                 Comment:[ 
-                           {
-                             people: 'lxp'
-		                 content:'bbbbbb'
-		                 time：2019_03_11 18:05:12
-                           },{
-                             people: 'xps'
-		                 content:'cccccc'
-		                 time：2019_03_11 18:00:23
-                           },{},{}.... 
-                         ]
+    Response:{
+		  "BookReview": {
+			    "Id": 1,
+			    "UserID": 1,
+			    "UserName": "",
+			    "Title": "毕业咯",
+			    "Content": "\u003cp\u003e毕业咯咯咯咯咯咯咯咯咯咯\u003c/p\u003e\n",
+			    "Time": "2019-05-20 20:52:16",
+			    "LikeNum": -1
+		  },
+		  "Comment": [
+		    {
+		      "Time": "2019-05-20 21:12:26",
+		      "content": "毕业快乐",
+		      "people": ""
+		    }
+		  ]
     }
+
     
-#####  8 点赞 /like/creata
+#####  8 点赞 /article/like/creata
 	Metohd: POST
 	Request：  
 	      参数名        必选M/可选O      类型           说明
 		Id               M           int           书评id
 	Response:{
-	       Msg: "ok"
+	       Msg: "ok",
+	       Num: 1
 	}
 
-##### 9 取消点赞 /like/cancel
+##### 9 取消点赞 /article/like/cancel
 	Metohd: POST
 	Request：  
 	      参数名        必选M/可选O      类型           说明
 		 Id              M           int           书评id
 	Response:{
-	       Msg: "ok"
+	       Msg: "ok",
+	       Num: 0
 	}
 
 ##### 10 评论/article/comment/create
@@ -183,24 +192,28 @@
        参数名        必选M/可选O         类型           说明
 	   Kind             M              int           0:书签 1：书评
     Response:{  
-                bookmark：[ {
-                             Id:1,
-				 User:'门户名',
-				 Title: '好好学习',   
-				 Content:'cdjcndjnvjbfvkbfskvbfkjvbfkv',
-				 Time: 2019_03_11 17:51，
-			         Live: 10
-                            },{},{}
-			              ] 
+                "List": [
+			    {
+			      "Id": 1,
+			      "UserID": 1,
+			      "UserName": "",
+			      "Source": "Linux",
+			      "Content": "Linux大法红火火恍恍惚惚",
+			      "Time": "2019-05-20 20:49:18"
+			    },{},{}
+		  ]
                 或者
-                bookreview：[{ 
-                              Id:1,
-			          User:'门户名',
-	 			  Source: '人民公报',   
-				  Content:'cdjcndjnvjbfvkbfskvbfkjvbfkv',
-				  Time: 2019_03_11 17:51
-                            },{},{}
-                          ]
+                "List": [
+			    {
+			      "Id": 1,
+			      "UserID": 1,
+			      "UserName": "",
+			      "Title": "毕业咯",
+			      "Content": "\u003cp\u003e毕业咯咯咯咯咯咯咯咯咯咯\u003c/p\u003e\n",
+			      "Time": "2019-05-20 20:52:16",
+			      "LikeNum": 0
+			    },{},{}
+                ]
     }
 
 ##### 12 个人资料 /user/details/get
@@ -208,13 +221,20 @@
     Request：  
        无
     Response:{ 
-                 Name:'dd'       
-		     Sex: 1          
-		     Email:'983316419@qq.com'       
-		     Phone:15521501175        
-		     Birth:1990-10       
-		     Signature:"do ffff"
-                           
+             "Msg": "ok",
+	         "Data": {
+		    "Id": 1,
+		    "Num": "gbt",
+		    "Pwd": "123456",
+		    "Name": "",
+		    "Role": 0,
+		    "Sex": 0,
+		    "Email": "",
+		    "Phone": "",
+		    "Birth": "",
+		    "Signature": "",
+		    "Time": "2019-05-20 20:41:59"
+             }                         
     }
 
 ##### 13 角色设置 /user/role/set
@@ -231,5 +251,34 @@
     Request：  
        无
     Response:{
-        [ {用户1的所有信息}，{用户2}，{用户3} ]
-    }
+	  "List": [
+		    {
+		      "Id": 1,
+		      "Num": "gbt",
+		      "Pwd": "123456",
+		      "Name": "",
+		      "Role": 0,
+		      "Sex": 0,
+		      "Email": "",
+		      "Phone": "",
+		      "Birth": "",
+		      "Signature": "",
+		      "Time": "2019-05-20 20:41:59"
+		    },{},{}
+	  ]
+}
+
+##### 15 修改用户信息 /user/detail/modify
+    Metohd: Post
+    Request：  
+       参数名        必选M/可选O         类型           说明
+       Email            M               string
+       Birth            M               string
+       Phone            M               string
+       Pwd              M               string
+       Role             M               int            0：普通用户    1：管理员
+       Sex              M               int            0：男          1：女
+       Signature        M               string  
+    Response:{
+	  Msg:"ok"
+}
