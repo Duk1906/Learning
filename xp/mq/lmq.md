@@ -1,24 +1,25 @@
 ### 模型类
 ##### 1. 书签
 		type BookMark struct{
-		     Id           int                             唯一标识
-		     User         *UserMQ    `orm:"rel(fk)"`      作者
-		     Source       string                          出处 
-		     Content      string                          内容
-		     Time         time.Time `orm:"auto_now_add;type(datetime)"`     创建时间 
-		}
+		         Id           int  
+			 UserID       int
+			 UserName     string
+		         Source       string
+		         Content      string
+			 Time         string
+               }
 
 
 ##### 2. 书评
 		type BookReview struct{
-		     Id           int                              唯一标识
-		     UserID       int                              作者id
-		     UserName     string                           作者名字
-		     Title        string                           题目
-		     Content      string                           内容
-		     Time         time.Time `orm:"auto_now_add;type(datetime)"`     创建时间
-		     Live         int       `orm:"default(0)"`     点赞数
-        }
+                     Id           int  
+			 UserID       int
+			 UserName     string
+		         Title        string
+		         Content      string
+			 Time         string
+			 LikeNum      int       `orm:"default(0)"`
+               }
 
 
 
@@ -45,7 +46,9 @@
 			Phone        string     `orm:"-"`               手机号
 		        Birth        time.Time  `orm:"-;type(date)"`    生日
 		        Signature    string     `orm:"-"`               签名
-			Time         time.Time                          创建时间
+			Time         string                             创建时间
+			
+			
 		}
 
 
@@ -56,6 +59,7 @@
 	   参数名        必选M/可选O          类型         说明
        Num              M               string       账号 
 	   Pwd              M               string       密码 
+	   Name             M               string       姓名
     Response:{
          Msg: "ok"
 	}
@@ -85,13 +89,17 @@
     Metohd: Get
     Request：  
 	   无
-    Response:{ 
-                Id : 1,
-		    User : '门户名',
-		    Source : '人民公报',   
-		    Content : 'cdjcndjnvjbfvkbfskvbfkjvbfkv',
-		    Time : 2019_03_11 17:51
-                },{},{}]
+    Response:{
+	  "List": [
+		    {
+		      "Id": 1,
+		      "UserID": 1,
+		      "UserName": "",
+		      "Source": "Linux",
+		      "Content": "Linux大法红火火恍恍惚惚",
+		      "Time": "2019-05-20 20:49:18"
+		    },{},{}
+	  ]
     }
 
 
